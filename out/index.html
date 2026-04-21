@@ -1,91 +1,40 @@
-<!DOCTYPE html><!--51JLnL1HXdXQLVsy00mtp--><html lang="ja"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-078f6dfb37dff419.js"/><script src="/_next/static/chunks/4bd1b696-c023c6e3521b1417.js" async=""></script><script src="/_next/static/chunks/255-6b79f309a27fb98b.js" async=""></script><script src="/_next/static/chunks/main-app-def95e5e61145358.js" async=""></script><script src="/_next/static/chunks/app/page-a3077eba1fde9cf4.js" async=""></script><title>相続税シミュレーター</title><meta name="description" content="相続税を簡単に計算できるシミュレーターです"/><script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body><div hidden=""><!--$--><!--/$--></div><div style="font-family:&#x27;Noto Sans JP&#x27;, &#x27;Hiragino Kaku Gothic ProN&#x27;, sans-serif;background:#f8f5f0;min-height:100vh;color:#2c2420"><style>
+<!DOCTYPE html><!--PrMQ9MacTKsnbKb_OOdV_--><html lang="ja"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-078f6dfb37dff419.js"/><script src="/_next/static/chunks/4bd1b696-c023c6e3521b1417.js" async=""></script><script src="/_next/static/chunks/255-6b79f309a27fb98b.js" async=""></script><script src="/_next/static/chunks/main-app-ddb2512035b2aca0.js" async=""></script><script src="/_next/static/chunks/app/page-7909f28cbfb438ab.js" async=""></script><title>相続税シミュレーター</title><meta name="description" content="相続税を簡単に計算できるシミュレーターです"/><script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body><div hidden=""><!--$--><!--/$--></div><div style="font-family:&#x27;Noto Sans JP&#x27;,&#x27;Hiragino Kaku Gothic ProN&#x27;,sans-serif;background:#f8f5f0;min-height:100vh;color:#2c2420"><style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap');
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        :root {
-          --gold: #b8935a;
-          --gold-light: #d4aa72;
-          --dark: #2c2420;
-          --cream: #f8f5f0;
-          --cream2: #f0ebe3;
-          --border: rgba(184,147,90,0.25);
-          --red: #c0392b;
-          --orange: #d35400;
-          --blue: #2471a3;
-        }
-        input, select { font-family: 'Noto Sans JP', sans-serif; }
-        input[type=number], input[type=text] {
-          background: white;
-          border: 1px solid var(--border);
-          color: var(--dark);
-          padding: 10px 14px;
-          border-radius: 6px;
-          width: 100%;
-          font-size: 15px;
-          outline: none;
-          transition: border-color 0.2s;
-        }
-        input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(184,147,90,0.12); }
-        select {
-          background: white;
-          border: 1px solid var(--border);
-          color: var(--dark);
-          padding: 10px 14px;
-          border-radius: 6px;
-          width: 100%;
-          font-size: 15px;
-          outline: none;
-          cursor: pointer;
-          appearance: none;
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23b8935a' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
-          background-repeat: no-repeat;
-          background-position: right 14px center;
-          padding-right: 36px;
-        }
-        select:focus { border-color: var(--gold); }
-        .btn-calc {
-          background: linear-gradient(135deg, #b8935a, #8a6a35);
-          color: white;
-          border: none;
-          padding: 16px 48px;
-          border-radius: 8px;
-          font-family: 'Noto Sans JP', sans-serif;
-          font-size: 17px;
-          font-weight: 700;
-          cursor: pointer;
-          letter-spacing: 0.05em;
-          transition: transform 0.15s, opacity 0.15s;
-          box-shadow: 0 4px 16px rgba(184,147,90,0.35);
-        }
-        .btn-calc:hover { transform: translateY(-2px); opacity: 0.95; }
-        .btn-sub {
-          background: transparent;
-          color: var(--gold);
-          border: 1px solid var(--border);
-          padding: 10px 24px;
-          border-radius: 6px;
-          font-family: 'Noto Sans JP', sans-serif;
-          font-size: 14px;
-          cursor: pointer;
-          transition: all 0.2s;
-        }
-        .btn-sub:hover { background: rgba(184,147,90,0.08); border-color: var(--gold); }
-        .field-label { font-size: 12px; color: #7a6a5a; letter-spacing: 0.04em; margin-bottom: 6px; font-weight: 500; }
-        .card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 20px; }
-        .section-head { font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid var(--border); font-weight: 700; }
-        .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-        .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
-        .check-row { display: flex; align-items: flex-start; gap: 10px; padding: 12px; border: 1px solid var(--border); border-radius: 8px; cursor: pointer; transition: background 0.2s; margin-bottom: 8px; }
-        .check-row:hover { background: rgba(184,147,90,0.05); }
-        .check-row input[type=checkbox] { width: 18px; height: 18px; margin-top: 1px; accent-color: var(--gold); flex-shrink: 0; }
-        .stat-box { background: var(--cream2); border: 1px solid var(--border); border-radius: 10px; padding: 18px; text-align: center; }
-        .stat-label { font-size: 11px; color: #8a7a6a; letter-spacing: 0.06em; margin-bottom: 6px; }
-        .stat-value { font-size: 20px; font-weight: 700; color: var(--gold); }
-        .advice-card { border-left: 3px solid; padding: 16px 16px 16px 20px; margin-bottom: 12px; border-radius: 0 8px 8px 0; background: white; }
-        .cta-box { background: linear-gradient(135deg, #b8935a, #8a6a35); color: white; border-radius: 12px; padding: 28px 32px; text-align: center; margin-top: 32px; }
-        .cta-btn { background: white; color: #8a6a35; border: none; padding: 14px 40px; border-radius: 8px; font-family: 'Noto Sans JP', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 16px; transition: transform 0.15s; box-shadow: 0 2px 12px rgba(0,0,0,0.15); }
-        .cta-btn:hover { transform: translateY(-2px); }
-        @keyframes fadeUp { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: translateY(0); } }
-        .fade-up { animation: fadeUp 0.5s ease forwards; }
-        .tag { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; }
-        .disclaimer { background: #f5f0ea; border: 1px solid var(--border); border-radius: 8px; padding: 14px 18px; font-size: 12px; color: #8a7a6a; line-height: 1.8; margin-top: 20px; }
-      </style><div style="background:white;border-bottom:1px solid var(--border);padding:0 24px"><div style="max-width:760px;margin:0 auto;height:60px;display:flex;align-items:center;justify-content:space-between"><div style="display:flex;align-items:center;gap:12px"><div style="width:34px;height:34px;background:linear-gradient(135deg,#b8935a,#8a6a35);border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:16px">⚖</div><div><div style="font-size:15px;font-weight:700;letter-spacing:0.04em;color:var(--dark)">相続税 かんたん診断</div><div style="font-size:10px;color:#8a7a6a;letter-spacing:0.06em">INHERITANCE TAX SIMULATOR</div></div></div><div style="font-size:11px;color:#8a7a6a">国税庁準拠・無料・匿名</div></div></div><div style="max-width:760px;margin:0 auto;padding:28px 24px 60px"><div style="display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:28px"><div style="display:flex;align-items:center"><div style="display:flex;flex-direction:column;align-items:center;gap:4px"><div style="width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;background:linear-gradient(135deg,#b8935a,#8a6a35);border:none;color:white">1</div><div style="font-size:10px;color:var(--gold);white-space:nowrap">財産の入力</div></div><div style="width:48px;height:1px;background:var(--border);margin:0 4px;margin-bottom:16px"></div></div><div style="display:flex;align-items:center"><div style="display:flex;flex-direction:column;align-items:center;gap:4px"><div style="width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;background:white;border:1px solid var(--border);color:#8a7a6a">2</div><div style="font-size:10px;color:#8a7a6a;white-space:nowrap">相続人・特例</div></div><div style="width:48px;height:1px;background:var(--border);margin:0 4px;margin-bottom:16px"></div></div><div style="display:flex;align-items:center"><div style="display:flex;flex-direction:column;align-items:center;gap:4px"><div style="width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;background:white;border:1px solid var(--border);color:#8a7a6a">3</div><div style="font-size:10px;color:#8a7a6a;white-space:nowrap">診断結果</div></div></div></div><div class="fade-up"><div style="text-align:center;margin-bottom:28px"><h1 style="font-family:&#x27;Playfair Display&#x27;, serif;font-size:26px;font-weight:700;color:var(--dark);margin-bottom:8px;letter-spacing:0.02em">相続税をかんたん診断</h1><p style="font-size:14px;color:#6a5a4a;line-height:1.8">氏名不要・匿名でご利用いただけます。<br/>おおよその財産額を入力するだけで相続税の概算と節税アドバイスをお届けします。</p></div><div class="card"><div class="section-head">💰 金融資産</div><div class="grid2"><div><div class="field-label">預貯金 合計（万円）</div><input type="number" placeholder="例：3000" value=""/></div><div><div class="field-label">上場株式・投資信託（万円）</div><input type="number" placeholder="例：1000" value=""/></div><div><div class="field-label">生命保険金（受取予定額・万円）</div><input type="number" placeholder="例：1500" value=""/></div><div><div class="field-label">死亡退職金（万円）</div><input type="number" placeholder="例：500" value=""/></div></div></div><div class="card"><div class="section-head">🏠 不動産</div><div class="grid3" style="margin-bottom:14px"><div><div class="field-label">評価額（万円）※路線価または固定資産税評価額</div><input type="number" placeholder="例：5000" value=""/></div><div><div class="field-label">用途・種別</div><select><option value="居住用" selected="">居住用（自宅）</option><option value="事業用">事業用</option><option value="貸付用">貸付用（賃貸）</option><option value="その他">その他</option></select></div><div><div class="field-label">土地面積（㎡）</div><input type="number" placeholder="例：150" value=""/></div></div><div style="background:#fdf9f4;border:1px solid var(--border);border-radius:8px;padding:12px 16px;font-size:12px;color:#7a6a5a;line-height:1.7">💡 不動産が複数ある場合は合計額を入力してください。路線価は<a href="https://www.rosenka.nta.go.jp/" target="_blank" rel="noopener noreferrer" style="color:var(--gold)">国税庁路線価サイト</a>でご確認いただけます。</div></div><div class="card"><div class="section-head">📦 その他財産・債務</div><div class="grid2"><div><div class="field-label">その他財産（車・貴金属・ゴルフ会員権等・万円）</div><input type="number" placeholder="例：300" value=""/></div><div><div class="field-label">債務合計（借入金・未払金等・万円）</div><input type="number" placeholder="例：1000" value=""/></div><div><div class="field-label">葬式費用（万円）</div><input type="number" placeholder="例：200" value=""/></div></div></div><div style="display:flex;justify-content:flex-end;margin-top:8px"><button class="btn-calc">次へ：相続人の設定 →</button></div></div></div></div><!--$--><!--/$--><script src="/_next/static/chunks/webpack-078f6dfb37dff419.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[9766,[],\"\"]\n3:I[8924,[],\"\"]\n4:I[1959,[],\"ClientPageRoot\"]\n5:I[3264,[\"974\",\"static/chunks/app/page-a3077eba1fde9cf4.js\"],\"default\"]\n8:I[4431,[],\"OutletBoundary\"]\na:I[5278,[],\"AsyncMetadataOutlet\"]\nc:I[4431,[],\"ViewportBoundary\"]\ne:I[4431,[],\"MetadataBoundary\"]\nf:\"$Sreact.suspense\"\n11:I[7150,[],\"\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"51JLnL1HXdXQLVsy00mtp\",\"p\":\"\",\"c\":[\"\",\"\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"__PAGE__\",{}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"html\",null,{\"lang\":\"ja\",\"children\":[\"$\",\"body\",null,{\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[[\"$\",\"$L4\",null,{\"Component\":\"$5\",\"searchParams\":{},\"params\":{},\"promises\":[\"$@6\",\"$@7\"]}],null,[\"$\",\"$L8\",null,{\"children\":[\"$L9\",[\"$\",\"$La\",null,{\"promise\":\"$@b\"}]]}]]}],{},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[[\"$\",\"$Lc\",null,{\"children\":\"$Ld\"}],null],[\"$\",\"$Le\",null,{\"children\":[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$f\",null,{\"fallback\":null,\"children\":\"$L10\"}]}]}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$11\",[]],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"6:{}\n7:\"$0:f:0:1:2:children:1:props:children:0:props:params\"\n"])</script><script>self.__next_f.push([1,"d:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n9:null\n"])</script><script>self.__next_f.push([1,"b:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"相続税シミュレーター\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"相続税を簡単に計算できるシミュレーターです\"}]],\"error\":null,\"digest\":\"$undefined\"}\n"])</script><script>self.__next_f.push([1,"10:\"$b:metadata\"\n"])</script></body></html>
+        *{box-sizing:border-box;margin:0;padding:0;}
+        :root{--gold:#b8935a;--dark:#2c2420;--border:rgba(184,147,90,0.25);--red:#c0392b;--orange:#d35400;--blue:#2471a3;}
+        input,select{font-family:'Noto Sans JP',sans-serif;}
+        input[type=number],input[type=text]{background:white;border:1px solid var(--border);color:var(--dark);padding:10px 14px;border-radius:6px;width:100%;font-size:15px;outline:none;transition:border-color 0.2s;}
+        input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,147,90,0.12);}
+        select{background:white;border:1px solid var(--border);color:var(--dark);padding:10px 14px;border-radius:6px;width:100%;font-size:15px;outline:none;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23b8935a' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;}
+        select:focus{border-color:var(--gold);}
+        .btn-calc{background:linear-gradient(135deg,#b8935a,#8a6a35);color:white;border:none;padding:16px 48px;border-radius:8px;font-family:'Noto Sans JP',sans-serif;font-size:17px;font-weight:700;cursor:pointer;letter-spacing:0.05em;transition:transform 0.15s,opacity 0.15s;box-shadow:0 4px 16px rgba(184,147,90,0.35);}
+        .btn-calc:hover{transform:translateY(-2px);opacity:0.95;}
+        .btn-sub{background:transparent;color:var(--gold);border:1px solid var(--border);padding:10px 24px;border-radius:6px;font-family:'Noto Sans JP',sans-serif;font-size:14px;cursor:pointer;transition:all 0.2s;}
+        .btn-sub:hover{background:rgba(184,147,90,0.08);border-color:var(--gold);}
+        .field-label{font-size:12px;color:#7a6a5a;letter-spacing:0.04em;margin-bottom:6px;font-weight:500;}
+        .field-note{font-size:11px;color:#8a7a6a;margin-top:4px;line-height:1.6;}
+        .card{background:white;border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:20px;}
+        .section-head{font-size:12px;text-transform:uppercase;letter-spacing:0.15em;color:var(--gold);margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid var(--border);font-weight:700;}
+        .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+        .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+        .check-row{display:flex;align-items:flex-start;gap:10px;padding:12px;border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:background 0.2s;margin-bottom:8px;}
+        .check-row:hover{background:rgba(184,147,90,0.05);}
+        .check-row input[type=checkbox]{width:18px;height:18px;margin-top:1px;accent-color:var(--gold);flex-shrink:0;}
+        .stat-box{background:#f0ebe3;border:1px solid var(--border);border-radius:10px;padding:18px;text-align:center;}
+        .stat-label{font-size:11px;color:#8a7a6a;letter-spacing:0.06em;margin-bottom:6px;}
+        .stat-value{font-size:20px;font-weight:700;color:var(--gold);}
+        .advice-card{border-left:3px solid;padding:16px 16px 16px 20px;margin-bottom:12px;border-radius:0 8px 8px 0;}
+        .cta-box{background:linear-gradient(135deg,#b8935a,#8a6a35);color:white;border-radius:12px;padding:28px 32px;text-align:center;margin-top:32px;}
+        .cta-btn{background:white;color:#8a6a35;border:none;padding:14px 40px;border-radius:8px;font-family:'Noto Sans JP',sans-serif;font-size:16px;font-weight:700;cursor:pointer;margin-top:16px;transition:transform 0.15s;box-shadow:0 2px 12px rgba(0,0,0,0.15);}
+        .cta-btn:hover{transform:translateY(-2px);}
+        @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+        .fade-up{animation:fadeUp 0.5s ease forwards;}
+        .tag{display:inline-block;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.04em;}
+        .disclaimer{background:#f5f0ea;border:1px solid var(--border);border-radius:8px;padding:14px 18px;font-size:12px;color:#8a7a6a;line-height:1.8;margin-top:20px;}
+        .role-btn{background:white;border:2px solid var(--border);border-radius:12px;padding:20px 16px;cursor:pointer;transition:all 0.2s;text-align:center;font-family:'Noto Sans JP',sans-serif;}
+        .role-btn:hover{border-color:var(--gold);background:rgba(184,147,90,0.05);}
+        .role-btn.selected{border-color:var(--gold);background:rgba(184,147,90,0.1);}
+        .role-icon{font-size:28px;margin-bottom:8px;}
+        .role-label{font-size:14px;font-weight:700;color:var(--dark);}
+        .role-sub{font-size:11px;color:#8a7a6a;margin-top:4px;}
+      </style><div style="background:white;border-bottom:1px solid var(--border);padding:0 24px"><div style="max-width:760px;margin:0 auto;height:60px;display:flex;align-items:center;justify-content:space-between"><div style="display:flex;align-items:center;gap:12px"><div style="width:34px;height:34px;background:linear-gradient(135deg,#b8935a,#8a6a35);border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:16px">⚖</div><div><div style="font-size:15px;font-weight:700;letter-spacing:0.04em">相続税 かんたん診断</div><div style="font-size:10px;color:#8a7a6a;letter-spacing:0.06em">INHERITANCE TAX SIMULATOR</div></div></div><div style="font-size:11px;color:#8a7a6a">国税庁準拠・無料・匿名</div></div></div><div style="max-width:760px;margin:0 auto;padding:28px 24px 60px"><div class="fade-up"><div style="text-align:center;margin-bottom:32px"><h1 style="font-family:&#x27;Playfair Display&#x27;,serif;font-size:26px;font-weight:700;margin-bottom:10px">相続税をかんたん診断</h1><p style="font-size:14px;color:#6a5a4a;line-height:1.8">氏名不要・匿名でご利用いただけます。<br/>まず、あなたはどのお立場でシミュレーションされますか？</p></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px"><button class="role-btn"><div class="role-icon">👤</div><div class="role-label">本人（被相続人となる方）</div><div class="role-sub">ご自身の財産について生前対策を検討したい</div></button><button class="role-btn"><div class="role-icon">💑</div><div class="role-label">配偶者</div><div class="role-sub">配偶者が亡くなった場合の相続税を知りたい</div></button><button class="role-btn"><div class="role-icon">👨‍👩‍👦</div><div class="role-label">子</div><div class="role-sub">親が亡くなった場合の相続税を知りたい</div></button><button class="role-btn"><div class="role-icon">👪</div><div class="role-label">親・兄弟姉妹・その他</div><div class="role-sub">家族が亡くなった場合の相続税を知りたい</div></button></div><div style="background:#fdf9f4;border:1px solid var(--border);border-radius:8px;padding:12px 16px;font-size:12px;color:#7a6a5a;line-height:1.7;margin-bottom:24px">ℹ️ このシミュレーターは「被相続人（亡くなる方）の財産に対して、法定相続分で相続した場合の相続税概算」を計算します。氏名などの個人情報は一切不要です。</div><div style="display:flex;justify-content:flex-end"><button class="btn-calc">次へ：財産の入力 →</button></div></div></div></div><!--$--><!--/$--><script src="/_next/static/chunks/webpack-078f6dfb37dff419.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[9766,[],\"\"]\n3:I[8924,[],\"\"]\n4:I[1959,[],\"ClientPageRoot\"]\n5:I[3264,[\"974\",\"static/chunks/app/page-7909f28cbfb438ab.js\"],\"default\"]\n8:I[4431,[],\"OutletBoundary\"]\na:I[5278,[],\"AsyncMetadataOutlet\"]\nc:I[4431,[],\"ViewportBoundary\"]\ne:I[4431,[],\"MetadataBoundary\"]\nf:\"$Sreact.suspense\"\n11:I[7150,[],\"\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"PrMQ9MacTKsnbKb-OOdV_\",\"p\":\"\",\"c\":[\"\",\"\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"__PAGE__\",{}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"html\",null,{\"lang\":\"ja\",\"children\":[\"$\",\"body\",null,{\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[[\"$\",\"$L4\",null,{\"Component\":\"$5\",\"searchParams\":{},\"params\":{},\"promises\":[\"$@6\",\"$@7\"]}],null,[\"$\",\"$L8\",null,{\"children\":[\"$L9\",[\"$\",\"$La\",null,{\"promise\":\"$@b\"}]]}]]}],{},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[[\"$\",\"$Lc\",null,{\"children\":\"$Ld\"}],null],[\"$\",\"$Le\",null,{\"children\":[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$f\",null,{\"fallback\":null,\"children\":\"$L10\"}]}]}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$11\",[]],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"6:{}\n7:\"$0:f:0:1:2:children:1:props:children:0:props:params\"\n"])</script><script>self.__next_f.push([1,"d:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n9:null\n"])</script><script>self.__next_f.push([1,"b:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"相続税シミュレーター\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"相続税を簡単に計算できるシミュレーターです\"}]],\"error\":null,\"digest\":\"$undefined\"}\n"])</script><script>self.__next_f.push([1,"10:\"$b:metadata\"\n"])</script></body></html>

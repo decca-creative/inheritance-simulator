@@ -1,4 +1,4 @@
-// File: /Users/decca/Dropbox/My Mac (泉賀純一のMacBook Pro)/Desktop/projects/レップリーガル_相続税計算AI/phase1.1/inheritance-simulator/app/page.jsx
+// File: /Users/decca/Dropbox/My Mac (泉賀純一のMacBook Pro)/Desktop/projects/レップリーガル_相続税計算AI/phase1.2/inheritance-simulator/app/page.jsx
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

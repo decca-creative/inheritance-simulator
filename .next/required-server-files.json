@@ -100,7 +100,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "/Users/decca/Dropbox/My Mac (泉賀純一のMacBook Pro)/Desktop/projects/レップリーガル_相続税計算AI/phase1.1/inheritance-simulator",
+    "outputFileTracingRoot": "/Users/decca/Dropbox/My Mac (泉賀純一のMacBook Pro)/Desktop/projects/レップリーガル_相続税計算AI/phase1.2/inheritance-simulator",
     "experimental": {
       "useSkewCookie": false,
       "cacheLife": {
@@ -290,10 +290,10 @@
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.ts",
     "turbopack": {
-      "root": "/Users/decca/Dropbox/My Mac (泉賀純一のMacBook Pro)/Desktop/projects/レップリーガル_相続税計算AI/phase1.1/inheritance-simulator"
+      "root": "/Users/decca/Dropbox/My Mac (泉賀純一のMacBook Pro)/Desktop/projects/レップリーガル_相続税計算AI/phase1.2/inheritance-simulator"
     }
   },
-  "appDir": "/Users/decca/Dropbox/My Mac (泉賀純一のMacBook Pro)/Desktop/projects/レップリーガル_相続税計算AI/phase1.1/inheritance-simulator",
+  "appDir": "/Users/decca/Dropbox/My Mac (泉賀純一のMacBook Pro)/Desktop/projects/レップリーガル_相続税計算AI/phase1.2/inheritance-simulator",
   "relativeAppDir": "",
   "files": [
     ".next/routes-manifest.json",

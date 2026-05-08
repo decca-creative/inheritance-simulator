@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 
 // ============================================================
@@ -258,7 +256,7 @@ export default function InheritanceTaxPhase1() {
 
   const [inputs, setInputs] = useState({
     userRole: "",
-    deposits: "", landValue: "", landArea: "", landAddress: "",
+    deposits: "", landValue: "", landArea: "",
     landResident: "", buildingValue: "", realEstateOtherValue: "",
     stocks: "", insurance: "",
     insuranceBeneficiary: "相続人（配偶者・子など）",
@@ -454,44 +452,99 @@ export default function InheritanceTaxPhase1() {
             </div>
 
             <div className="card">
-              <div className="section-head">🏠 不動産 ― 土地</div>
-              <div className="grid2">
-                <div style={{ gridColumn: "1 / -1" }}>
-                  <div className="field-label">土地の住所（路線価の参考用）</div>
-                  <input type="text" value={inputs.landAddress} onChange={e => set("landAddress", e.target.value)} placeholder="例：兵庫県神戸市中央区○○町1-2-3" />
-                  <div className="field-note">💡 路線価は<a href="https://www.rosenka.nta.go.jp/" target="_blank" rel="noopener noreferrer" style={{ color: "var(--gold)" }}>国税庁 路線価サイト</a>で住所から調べられます。路線価（円/㎡）× 面積（㎡）÷ 10,000 = 評価額（万円）の目安です。</div>
-                </div>
-                <div>
-                  <div className="field-label">土地面積（㎡）</div>
-                  <input type="number" value={inputs.landArea} onChange={e => set("landArea", e.target.value)} placeholder="例：150" />
-                </div>
-                <div>
-                  <div className="field-label">土地評価額（万円）</div>
-                  <input type="number" value={inputs.landValue} onChange={e => set("landValue", e.target.value)} placeholder="例：5000" />
-                </div>
-                <div style={{ gridColumn: "1 / -1" }}>
-                  <div className="field-label">その土地に誰が住んでいますか？</div>
-                  <select value={inputs.landResident} onChange={e => set("landResident", e.target.value)}>
-                    <option value="">選択してください</option>
-                    <option value="被相続人本人のみ">被相続人本人のみ</option>
-                    <option value="配偶者">配偶者（と被相続人）</option>
-                    <option value="同居の子">同居の子（と被相続人）</option>
-                    <option value="同居の親族">その他同居の親族</option>
-                    <option value="誰も住んでいない">誰も住んでいない（空き家・賃貸など）</option>
-                  </select>
-                  <div className="field-note">※ 居住者によって小規模宅地等の特例（最大80%減額）の適用可否が自動判定されます</div>
-                </div>
-              </div>
-            </div>
+              <div className="section-head">🏠 不動産</div>
 
-            <div className="card">
-              <div className="section-head">🏗 不動産 ― 建物</div>
-              <div>
-                <div className="field-label">建物の固定資産税評価額（万円）</div>
-                <input type="number" value={inputs.buildingValue} onChange={e => set("buildingValue", e.target.value)} placeholder="例：800" />
-                <div className="field-note">💡 固定資産税・都市計画税の納税通知書に記載の「評価額」をご入力ください。お手元にない場合は市区町村役場でご確認いただけます。</div>
+              {/* 固定資産税評価額の調べ方 */}
+              <div style={{ background: "#fdf9f4", border: "1px solid var(--border)", borderRadius: 8, padding: "16px", marginBottom: 20 }}>
+                <div style={{ fontSize: 13, fontWeight: 700, color: "var(--gold)", marginBottom: 10 }}>📋 評価額の調べ方</div>
+                <div style={{ fontSize: 13, color: "#5a4a3a", lineHeight: 1.8, marginBottom: 12 }}>
+                  土地・建物の評価額は、毎年送られてくる<strong>「固定資産税・都市計画税 納税通知書」</strong>に記載されています。
+                </div>
+                <div style={{ background: "white", border: "1px solid var(--border)", borderRadius: 8, padding: 16, marginBottom: 12 }}>
+                  <div style={{ fontSize: 11, color: "#8a7a6a", marginBottom: 8, letterSpacing: "0.06em" }}>【固定資産税納税通知書 イメージ】</div>
+                  <svg viewBox="0 0 480 180" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", maxWidth: 480 }}>
+                    <rect x="10" y="10" width="460" height="160" rx="4" fill="#fafafa" stroke="#d4aa72" strokeWidth="1.5"/>
+                    <text x="240" y="34" textAnchor="middle" fontSize="12" fontWeight="bold" fill="#2c2420">固定資産税・都市計画税　納税通知書</text>
+                    <line x1="10" y1="42" x2="470" y2="42" stroke="#d4aa72" strokeWidth="0.8"/>
+                    <rect x="10" y="42" width="115" height="22" fill="#f0ebe3"/>
+                    <rect x="125" y="42" width="115" height="22" fill="#f0ebe3"/>
+                    <rect x="240" y="42" width="115" height="22" fill="#f0ebe3"/>
+                    <rect x="355" y="42" width="115" height="22" fill="#b8935a"/>
+                    <text x="67" y="57" textAnchor="middle" fontSize="10" fill="#5a4a3a">所在地</text>
+                    <text x="182" y="57" textAnchor="middle" fontSize="10" fill="#5a4a3a">地目・種別</text>
+                    <text x="297" y="57" textAnchor="middle" fontSize="10" fill="#5a4a3a">地積・床面積</text>
+                    <text x="412" y="57" textAnchor="middle" fontSize="10" fontWeight="bold" fill="white">評価額</text>
+                    <rect x="10" y="64" width="115" height="24" fill="white" stroke="#e8e0d5" strokeWidth="0.5"/>
+                    <rect x="125" y="64" width="115" height="24" fill="white" stroke="#e8e0d5" strokeWidth="0.5"/>
+                    <rect x="240" y="64" width="115" height="24" fill="white" stroke="#e8e0d5" strokeWidth="0.5"/>
+                    <rect x="355" y="64" width="115" height="24" fill="#fff8ee" stroke="#d4aa72" strokeWidth="1.5"/>
+                    <text x="67" y="80" textAnchor="middle" fontSize="10" fill="#2c2420">○○市△△町1-2-3</text>
+                    <text x="182" y="80" textAnchor="middle" fontSize="10" fill="#2c2420">宅地</text>
+                    <text x="297" y="80" textAnchor="middle" fontSize="10" fill="#2c2420">150.00㎡</text>
+                    <text x="412" y="80" textAnchor="middle" fontSize="11" fontWeight="bold" fill="#c0392b">12,500,000円</text>
+                    <rect x="10" y="88" width="115" height="24" fill="white" stroke="#e8e0d5" strokeWidth="0.5"/>
+                    <rect x="125" y="88" width="115" height="24" fill="white" stroke="#e8e0d5" strokeWidth="0.5"/>
+                    <rect x="240" y="88" width="115" height="24" fill="white" stroke="#e8e0d5" strokeWidth="0.5"/>
+                    <rect x="355" y="88" width="115" height="24" fill="#fff8ee" stroke="#d4aa72" strokeWidth="1.5"/>
+                    <text x="67" y="104" textAnchor="middle" fontSize="10" fill="#2c2420">○○市△△町1-2-3</text>
+                    <text x="182" y="104" textAnchor="middle" fontSize="10" fill="#2c2420">居宅</text>
+                    <text x="297" y="104" textAnchor="middle" fontSize="10" fill="#2c2420">98.55㎡</text>
+                    <text x="412" y="104" textAnchor="middle" fontSize="11" fontWeight="bold" fill="#c0392b">6,800,000円</text>
+                    <path d="M 412 116 L 412 128" stroke="#c0392b" strokeWidth="1.5" markerEnd="url(#arrow)"/>
+                    <defs>
+                      <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+                        <path d="M0,0 L8,4 L0,8 Z" fill="#c0392b"/>
+                      </marker>
+                    </defs>
+                    <rect x="310" y="130" width="160" height="30" rx="4" fill="#c0392b"/>
+                    <text x="390" y="148" textAnchor="middle" fontSize="11" fontWeight="bold" fill="white">👆 この「評価額」を入力</text>
+                  </svg>
+                </div>
+                <div style={{ fontSize: 12, color: "#7a6a5a", lineHeight: 1.7 }}>
+                  ⚠️ <strong>注意：</strong>固定資産税評価額は相続税計算で使用する路線価（固定資産税評価額のおよそ1.14倍）とは異なります。概算のため実際の相続税額と差異が生じる場合があります。
+                </div>
               </div>
-              <div style={{ marginTop: 14 }}>
+
+              {/* 土地 */}
+              <div style={{ background: "rgba(184,147,90,0.06)", border: "1px solid var(--border)", borderRadius: 8, padding: 16, marginBottom: 14 }}>
+                <div style={{ fontSize: 12, fontWeight: 700, color: "var(--gold)", letterSpacing: "0.08em", marginBottom: 12 }}>🏠 土地</div>
+                <div className="grid2">
+                  <div>
+                    <div className="field-label">固定資産税評価額（万円）</div>
+                    <input type="number" value={inputs.landValue} onChange={e => set("landValue", e.target.value)} placeholder="例：1250" />
+                    <div className="field-note">納税通知書の「評価額」欄（宅地）をご確認ください</div>
+                  </div>
+                  <div>
+                    <div className="field-label">土地面積（㎡）</div>
+                    <input type="number" value={inputs.landArea} onChange={e => set("landArea", e.target.value)} placeholder="例：150" />
+                  </div>
+                  <div style={{ gridColumn: "1 / -1" }}>
+                    <div className="field-label">その土地に誰が住んでいますか？</div>
+                    <select value={inputs.landResident} onChange={e => set("landResident", e.target.value)}>
+                      <option value="">選択してください</option>
+                      <option value="被相続人本人のみ">被相続人本人のみ</option>
+                      <option value="配偶者">配偶者（と被相続人）</option>
+                      <option value="同居の子">同居の子（と被相続人）</option>
+                      <option value="同居の親族">その他同居の親族</option>
+                      <option value="誰も住んでいない">誰も住んでいない（空き家・賃貸など）</option>
+                    </select>
+                    <div className="field-note">※ 居住者によって小規模宅地等の特例（最大80%減額）の適用可否が自動判定されます</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 建物 */}
+              <div style={{ background: "rgba(184,147,90,0.06)", border: "1px solid var(--border)", borderRadius: 8, padding: 16, marginBottom: 14 }}>
+                <div style={{ fontSize: 12, fontWeight: 700, color: "var(--gold)", letterSpacing: "0.08em", marginBottom: 12 }}>🏗 建物</div>
+                <div>
+                  <div className="field-label">固定資産税評価額（万円）</div>
+                  <input type="number" value={inputs.buildingValue} onChange={e => set("buildingValue", e.target.value)} placeholder="例：680" />
+                  <div className="field-note">納税通知書の「評価額」欄（家屋）をご確認ください。お手元にない場合は市区町村役場でご確認いただけます。</div>
+                </div>
+              </div>
+
+              {/* その他不動産 */}
+              <div>
                 <div className="field-label">その他不動産（賃貸物件・別荘等）の合計評価額（万円）</div>
                 <input type="number" value={inputs.realEstateOtherValue} onChange={e => set("realEstateOtherValue", e.target.value)} placeholder="例：2000" />
               </div>
